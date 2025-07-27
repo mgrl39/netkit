@@ -92,5 +92,42 @@
         <small><a href="https://netkit.doncom.me/">netkit.doncom.me</a></small>
       </footer>
     </main>
+        <script>
+      const isPost = window.location.pathname !== "/";
+      if (isPost) {
+        const slug = window.location.pathname.replace(/^\/|\/$/g, "");
+        const readChapters = JSON.parse(localStorage.getItem("readChapters") || "[]");
+
+        const button = document.createElement("button");
+        button.textContent = readChapters.includes(slug)
+          ? "✅ Marked as Read"
+          : "📘 Mark as Read";
+
+        button.style = `
+          position: fixed;
+          bottom: 1rem;
+          right: 1rem;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          background: var(--accent);
+          color: black;
+          border: none;
+          cursor: pointer;
+          font-weight: 600;
+          z-index: 1000;
+        `;
+
+        button.onclick = () => {
+          let updated = JSON.parse(localStorage.getItem("readChapters") || "[]");
+          if (!updated.includes(slug)) {
+            updated.push(slug);
+            localStorage.setItem("readChapters", JSON.stringify(updated));
+            button.textContent = "✅ Marked as Read";
+          }
+        };
+
+        document.body.appendChild(button);
+      }
+    </script>
   </body>
 </html>
