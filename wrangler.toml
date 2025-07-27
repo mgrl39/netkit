@@ -1,8 +1,6 @@
 name = "netkit"
 compatibility_date = "2025-07-27"
 
-main = "workers-site/index.js"
-
 # Esta es la parte que importa para sitios estáticos en Workers
 [site]
 bucket = "_site"
