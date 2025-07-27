@@ -8,7 +8,14 @@ tags: post
 A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. **It defines the range of IP addresses that can be used within a network or a subnet**.
 
 ## Finding the network address
-TODO 
+TODO
+
+## CIDR Notation (/24)
+The maask can also be represented with the **Classless Inter-Domain Routing** (CIDR).
+
+This form represents the mask as a slash `/`, followed by the number of bits that serve as the network address (Host Bits).
+
+Therefore, the mask in the example above of `255.255.255.128`, is equivalent to mask of: `/25` using the CIDR notation, since 25 bits out of 32 bits represents the network address.
 
 ---
 
