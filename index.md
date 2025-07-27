@@ -30,27 +30,21 @@ General guide designed to help you discover networking concepts
 
 <script>
   const read = JSON.parse(localStorage.getItem("readChapters") || "[]");
-  const listItems = document.querySelectorAll("#chapterList li");
-  const total = listItems.length;
+  const links = document.querySelectorAll("#chapterList a");
+  const total = links.length;
 
-  document.getElementById("readCount").textContent = read.length;
-  document.getElementById("totalCount").textContent = total;
-  document.getElementById("progressBar").value = read.length;
-  document.getElementById("progressBar").max = total;
-
-  listItems.forEach((li, i) => {
-    if (read.includes(i)) li.style.opacity = 0.5;
-    const btn = document.createElement("button");
-    btn.textContent = read.includes(i) ? "✓ Read" : "Mark Read";
-    btn.style.marginLeft = "1rem";
-    btn.onclick = () => {
-      if (!read.includes(i)) {
-        read.push(i);
-        localStorage.setItem("readChapters", JSON.stringify(read));
-        location.reload();
-      }
-    };
-    li.appendChild(btn);
+  let readCount = 0;
+  links.forEach(link => {
+    const slug = link.getAttribute("href").replace(/^\/|\/$/g, "");
+    if (read.includes(slug)) {
+      readCount++;
+      link.style.opacity = "0.5";
+      link.insertAdjacentHTML("afterend", " <span style='color:var(--muted)'>✓ Read</span>");
+    }
   });
-</script>
 
+  document.getElementById("readCount").textContent = readCount;
+  document.getElementById("totalCount").textContent = total;
+  document.getElementById("progressBar").value = readCount;
+  document.getElementById("progressBar").max = total;
+</script>
