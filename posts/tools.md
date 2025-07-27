@@ -5,14 +5,61 @@ date: 2025-07-25
 tags: post
 ---
 
+<style>
+  form#subnetForm {
+    border: 2px solid #444;
+    padding: 15px;
+    max-width: 350px;
+    border-radius: 8px;
+    background: #f0f0f0;
+  }
+  form#subnetForm label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+  }
+  form#subnetForm input {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 1rem;
+  }
+  form#subnetForm button {
+    margin-top: 12px;
+    padding: 8px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+  }
+  pre#result {
+    margin-top: 25px;
+    border: 2px solid #444;
+    padding: 15px;
+    max-width: 600px;
+    background: #222;
+    color: #eee;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    white-space: pre-wrap;
+  }
+</style>
+
 # Simple Subnet Calculator
 
 <form id="subnetForm">
-  <label for="ip">IP address:</label><br />
-  <input type="text" id="ip" name="ip" placeholder="e.g. 192.168.0.1" required /><br />
+  <label for="ip">IP address:</label>
+  <input type="text" id="ip" name="ip" placeholder="e.g. 192.168.0.1" required />
 
-  <label for="cidr">Subnet mask (CIDR):</label><br />
-  <input type="number" id="cidr" name="cidr" min="1" max="30" placeholder="e.g. 24" required /><br />
+  <label for="cidr">Subnet mask (CIDR):</label>
+  <input type="number" id="cidr" name="cidr" min="1" max="30" placeholder="e.g. 24" required />
 
   <button type="submit">Calculate</button>
 </form>
