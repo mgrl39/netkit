@@ -5,6 +5,13 @@ date: 2025-07-27
 tags: post
 ---
 
+A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. **It defines the range of IP addresses that can be used within a network or a subnet**.
+
+## Finding the network address
+TODO 
+
+---
+
 | Subnet Mask | CIDR | Binary Notation | Network Bits | Host Bits | Available Addresses |
 | ----------- | ---- | --------------- | ------------ | --------- | ------------------- |
 | 255.255.255.255 | /32 | 11111111.11111111.11111111.11111111 | 32 | 0 | 1 |
