@@ -29,6 +29,8 @@ If the other device is on your local network, you device talks to it directly. B
 
 The information about where to send data for addresses outside the local network is stored in something called the **routing table** inside your device. This table is like a GPS for your data, telling it the best path to reach its destination.
 
+---
+
 ## Credits
 
 This guide is based on the following repositories:
@@ -38,4 +40,4 @@ This guide is based on the following repositories:
 - [ricardoreves/42-net-practice](https://github.com/ricardoreves/42-net-practice)  
 - [ablaamim/Netpractice](https://github.com/ablaamim/Netpractice)  
 
-License: MIT License.
+**License: MIT License.**
