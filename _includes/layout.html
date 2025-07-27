@@ -92,42 +92,60 @@
         <small><a href="https://netkit.doncom.me/">netkit.doncom.me</a></small>
       </footer>
     </main>
-        <script>
-      const isPost = window.location.pathname !== "/";
-      if (isPost) {
-        const slug = window.location.pathname.replace(/^\/|\/$/g, "");
-        const readChapters = JSON.parse(localStorage.getItem("readChapters") || "[]");
+    <script>
+  const isPost = window.location.pathname !== "/";
+  if (isPost) {
+    const slug = window.location.pathname.replace(/^\/|\/$/g, "");
+    const readChapters = JSON.parse(localStorage.getItem("readChapters") || "[]");
+    const isRead = readChapters.includes(slug);
 
-        const button = document.createElement("button");
-        button.textContent = readChapters.includes(slug)
-          ? "✅ Marked as Read"
-          : "📘 Mark as Read";
-
-        button.style = `
-          position: fixed;
-          bottom: 1rem;
-          right: 1rem;
-          padding: 0.5rem 1rem;
-          border-radius: 8px;
-          background: var(--accent);
-          color: black;
-          border: none;
-          cursor: pointer;
-          font-weight: 600;
-          z-index: 1000;
-        `;
-
-        button.onclick = () => {
-          let updated = JSON.parse(localStorage.getItem("readChapters") || "[]");
-          if (!updated.includes(slug)) {
-            updated.push(slug);
-            localStorage.setItem("readChapters", JSON.stringify(updated));
-            button.textContent = "✅ Marked as Read";
-          }
-        };
-
-        document.body.appendChild(button);
+    // Botón para marcar/desmarcar
+    const markButton = document.createElement("button");
+    markButton.textContent = isRead ? "✅ Marked as Read (click to unmark)" : "📘 Mark as Read";
+    markButton.style = `
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      background: var(--accent);
+      color: black;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      z-index: 1000;
+    `;
+    markButton.onclick = () => {
+      let updated = JSON.parse(localStorage.getItem("readChapters") || "[]");
+      if (updated.includes(slug)) {
+        updated = updated.filter(s => s !== slug);
+        markButton.textContent = "📘 Mark as Read";
+      } else {
+        updated.push(slug);
+        markButton.textContent = "✅ Marked as Read (click to unmark)";
       }
-    </script>
+      localStorage.setItem("readChapters", JSON.stringify(updated));
+    };
+    document.body.appendChild(markButton);
+
+    // Botón para volver al índice
+    const backButton = document.createElement("a");
+    backButton.href = "/";
+    backButton.textContent = "← Back to index";
+    backButton.style = `
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      background: var(--muted);
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      z-index: 1000;
+    `;
+    document.body.appendChild(backButton);
+  }
+</script>
   </body>
 </html>
