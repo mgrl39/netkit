@@ -6,60 +6,45 @@ tags: post
 ---
 
 <style>
-  form#subnetForm {
-    border: 2px solid #444;
-    padding: 15px;
-    max-width: 350px;
-    border-radius: 8px;
-    background: #f0f0f0;
-  }
-  form#subnetForm label {
-    font-weight: bold;
-    margin-top: 10px;
-    display: block;
-  }
-  form#subnetForm input {
-    width: 100%;
-    padding: 6px;
-    margin-top: 4px;
-    border: 1px solid #999;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 1rem;
-  }
-  form#subnetForm button {
-    margin-top: 12px;
-    padding: 8px 16px;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1.1rem;
-  }
+  /* Solo estilamos el output para que encaje con dark mode pico */
   pre#result {
-    margin-top: 25px;
-    border: 2px solid #444;
-    padding: 15px;
-    max-width: 600px;
-    background: #222;
-    color: #eee;
-    border-radius: 8px;
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    padding: 1em;
+    border-radius: 6px;
     font-family: monospace;
-    font-size: 0.9rem;
+    color: #ccc;
     white-space: pre-wrap;
+    max-width: 600px;
+    margin-top: 1em;
+  }
+  /* Inputs y botón muy neutros, que no rompan */
+  input, button {
+    font-family: inherit;
+    font-size: 1rem;
+    margin-top: 0.25em;
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background: transparent;
+    color: inherit;
+  }
+  button:hover {
+    border-color: #888;
+    cursor: pointer;
+  }
+  label {
+    display: block;
+    margin-top: 1em;
   }
 </style>
 
-# Simple Subnet Calculator
-
-<form id="subnetForm">
+<form id="subnetForm" autocomplete="off">
   <label for="ip">IP address:</label>
   <input type="text" id="ip" name="ip" placeholder="e.g. 192.168.0.1" required />
 
-  <label for="cidr">Subnet mask (CIDR):</label>
-  <input type="number" id="cidr" name="cidr" min="1" max="30" placeholder="e.g. 24" required />
+  <label for="mask">Subnet mask (CIDR or decimal):</label>
+  <input type="text" id="mask" name="mask" placeholder="e.g. 24 or 255.255.255.0" required />
 
   <button type="submit">Calculate</button>
 </form>
@@ -79,6 +64,23 @@ function decToBin8(num) {
   return num.toString(2).padStart(8, '0');
 }
 
+// Función que convierte máscara decimal a CIDR
+function netmaskDecimalToCIDR(mask) {
+  const octets = ipToOctets(mask);
+  let binaryStr = '';
+  for (const o of octets) {
+    if (o < 0 || o > 255) return null;
+    binaryStr += decToBin8(o);
+  }
+  // Contar los bits 1 seguidos desde el inicio
+  const firstZero = binaryStr.indexOf('0');
+  if (firstZero === -1) return 32; // máscara completa
+  // Asegurarse que tras el primer 0 no hay más 1s
+  if (binaryStr.slice(firstZero).includes('1')) return null; // no válida
+  return firstZero;
+}
+
+// Convierte CIDR a máscara decimal
 function cidrToNetmask(cidr) {
   let mask = [];
   for (let i = 0; i < 4; i++) {
@@ -149,10 +151,11 @@ function validateIp(ip) {
   return true;
 }
 
-document.getElementById('subnetForm').addEventListener('submit', function(e) {
+document.getElementById('subnetForm').addEventListener('submit', e => {
   e.preventDefault();
-  const ip = document.getElementById('ip').value;
-  const cidr = Number(document.getElementById('cidr').value);
+
+  const ip = document.getElementById('ip').value.trim();
+  const maskInput = document.getElementById('mask').value.trim();
 
   const resultElem = document.getElementById('result');
 
@@ -161,8 +164,24 @@ document.getElementById('subnetForm').addEventListener('submit', function(e) {
     return;
   }
 
-  if (cidr < 1 || cidr > 30) {
-    resultElem.textContent = "Error: CIDR must be between 1 and 30.";
+  // Interpretar maskInput, puede ser CIDR o decimal máscara
+  let cidr = null;
+  if (/^\d+$/.test(maskInput)) {
+    // Solo número -> CIDR
+    cidr = Number(maskInput);
+    if (cidr < 1 || cidr > 30) {
+      resultElem.textContent = "Error: CIDR must be between 1 and 30.";
+      return;
+    }
+  } else if (/^\d{1,3}(\.\d{1,3}){3}$/.test(maskInput)) {
+    // Máscara decimal
+    cidr = netmaskDecimalToCIDR(maskInput);
+    if (cidr === null || cidr < 1 || cidr > 30) {
+      resultElem.textContent = "Error: Invalid subnet mask decimal.";
+      return;
+    }
+  } else {
+    resultElem.textContent = "Error: Mask must be CIDR number or decimal format.";
     return;
   }
 
@@ -188,9 +207,4 @@ document.getElementById('subnetForm').addEventListener('submit', function(e) {
   resultElem.textContent = output;
 });
 </script>
-
----
-
-You can also use this online calculator:  
-https://jodies.de/ipcalc
 
