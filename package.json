@@ -1,0 +1,13 @@
+{
+  "name": "blog-picocss-11ty",
+  "version": "1.0.0",
+  "description": "Blog estático con 11ty y PicoCSS para Cloudflare Pages",
+  "scripts": {
+    "build": "eleventy",
+    "deploy": "eleventy && wrangler deploy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "wrangler": "^3.0.0"
+  }
+}
