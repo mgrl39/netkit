@@ -5,6 +5,15 @@ date: 2025-07-27
 tags: post
 ---
 
+## Resume
+```c
+SWITCH -> Responsible for distributing packets between devices within the same network - usually, a local one (called LAN).
+
+ROUTER -> Responsible for connecting multiple networks together. Every router has an interface for every network it connects it to.
+
+ROUTING TABLE -> Simple data tablee stored in a router or network host that lists all the routes to a particular network destsination.
+```
+
 ## Switch
 A switch is a network device that connects multiple devices (such as computers, printers and servers), within a single local network, often called a LAN (Local Area Network). Its main job is to receive data packets and forward them only to the specific device they are intended for, making communication inside the network efficient and fast.
 
@@ -31,5 +40,8 @@ To summarize:
 (A layer 3 switch can route traffic between different local subnets inside a network but does not replace a router for internet access).
 ```
 ## Router
+Router connects multiple networks together. The router has an interface for each network it connects to.
+
+Since the router separates different networks, the range of possible IP addresses on one of its interafaaces must not overlap with the range of its other interfaces. An overlap in the IP adddress range would imply that the interfaces are on the same network.
 
 ## Routing Table
