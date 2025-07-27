@@ -198,7 +198,7 @@ document.getElementById('subnetForm').addEventListener('submit', e => {
   output += `Address:   ${ip.padEnd(15)}  ${ipOctets.map(decToBin8).join('.')}\n`;
   output += `Netmask:   ${netmaskOctets.join('.').padEnd(15)}= ${cidr}  ${netmaskOctets.map(decToBin8).join('.')}\n`;
   output += `Wildcard:  ${wildcardOctets.join('.').padEnd(15)}  ${wildcardOctets.map(decToBin8).join('.')}\n`;
-  output += `Network:   ${octetsToIp(networkOctets)}/${cidr}  ${networkOctets.map(decToBin8).join('.')} (Classless)\n`;
+  output += `Network:   ${octetsToIp(networkOctets)}/${cidr}  ${networkOctets.map(decToBin8).join('.')} \n`;
   output += `Broadcast: ${octetsToIp(broadcastOctets).padEnd(15)}  ${broadcastOctets.map(decToBin8).join('.')}\n`;
   output += `HostMin:   ${octetsToIp(hostMinOctets).padEnd(15)}  ${hostMinOctets.map(decToBin8).join('.')}\n`;
   output += `HostMax:   ${octetsToIp(hostMaxOctets).padEnd(15)}  ${hostMaxOctets.map(decToBin8).join('.')}\n`;
