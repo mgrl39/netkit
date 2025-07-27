@@ -1,14 +1,14 @@
 ---
-title: "NetKit"
+title: "🌐 NetKit"
 layout: layout.html
-description: "NetKit - Ultra-light and modern blog built with 11ty featuring a professional dark theme."
+description: "🌐 NetKit - General guide designed to help you discover networking concepts. 🌐🛜ᯤ📶"
 permalink: /
 canonicalUrl: "https://netkit.doncom.me/"
 ---
 
-Welcome to my ultra-light and modern blog built with 11ty and a professional dark theme.
+General guide designed to help you discover networking concepts
 
-## 📝 Recent Posts
+## 📝 Chapters
 
 <ul style="list-style: none; padding: 0;">
 {% for post in collections.post %}
