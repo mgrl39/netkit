@@ -1,5 +1,5 @@
 ---
-title: "00 Introduction"
+title: "Introduction"
 layout: layout.html
 date: 2025-07-25
 tags: post

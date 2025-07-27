@@ -1,5 +1,5 @@
 ---
-title: "Subnet Mask Chart"
+title: "Subnet Mask"
 layout: layout.html
 date: 2025-07-25
 tags: post
