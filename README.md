@@ -31,5 +31,4 @@ This project is based on and thanks to the following repositories:
 
 ## Website
 
-You can read the guide online at:  
-**[netkit.doncom.me](https://netkit.doncom.me/)**
+You can read the guide online at:  **[netkit.doncom.me](https://netkit.doncom.me/)**
