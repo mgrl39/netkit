@@ -5,6 +5,17 @@ date: 2025-07-27
 tags: post
 ---
 
+<style>
+table, th, td {
+  border: 1px solid #222;
+  border-collapse: collapse;
+  padding: 6px;
+}
+th {
+  background: #f5f5f5;
+}
+</style>
+
 ## Resume
 ```c
 SWITCH:
