@@ -9,6 +9,8 @@ tags: post
 
 A subnet mask is a 32 bits (4 bytes) address used to distinguish between a network address and a host address in the IP address. **It defines the range of IP addresses that can be used within a network or a subnet**.
 
+![Subnet Mask](/assets/images/client.png)
+![Subnet Mask](../assets/images/client.png)
 ## Finding the network address
 TODO
 
