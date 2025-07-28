@@ -13,7 +13,28 @@ A subnet mask is a 32 bits (4 bytes) address used to distinguish between a netwo
      style="display: block; margin: auto; width: 50%; border-radius: 2.5%;" />
 
 ## Finding the network address
-TODO
+The *Interface A1* above has the following properties:
+```
+IP address | 104.198.241.125
+Mask       | 255.255.255.128
+```
+To determine which portion of the IP address is the network address, we need to apply the mask to the IP address. Let's first covert the mask to its binary form:
+```
+Mask | 11111111.11111111.11111111.10000000
+```
+The bits of a mask that are 1 represent the network address, while the remaining bits of a mask that are 0 represent the host address. Let's convert the IP address to its binary form:
+```
+IP address | 01101000.11000110.11110001.01111101
+Mask       | 11111111.11111111.11111111.10000000
+```
+We can now apply the mask to the IP address through a bitwise AND to find the network address of the IP:
+```
+Network address | 01101000.11000110.11110001.00000000
+```
+Which translates to a network address of `104.198.241.0`.
+
+### Finding the range of host addresses
+TODO TODO TODO TODO TODO
 
 ## CIDR Notation (/24)
 The maask can also be represented with the **Classless Inter-Domain Routing** (CIDR).
