@@ -31,7 +31,6 @@ the routes to a particular network destsination.
 ## Switch
 <img src="/assets/images/switch.png" alt="Switch"
      style="display: block; margin: auto; width: 50%; border-radius: 2.5%;" />
-
 A switch is a network device that connects multiple devices (such as computers, printers and servers), within a single local network, often called a LAN (Local Area Network). Its main job is to receive data packets and forward them only to the specific device they are intended for, making communication inside the network efficient and fast.
 
 Unlike the router, which can connect different networks together (for exemple, your home network to the internet), a traditional switch works only inside one network. It operates at the data link layer (Layerr 2) of the networking model, using its physical ports to receive and send data frames within the same local network. Because of this, a switch cannot route aor send data directly between different networks.
