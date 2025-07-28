@@ -4,8 +4,7 @@ module.exports = function(eleventyConfig) {
     return new Date(date).toISOString().split('T')[0]; // Formato YYYY-MM-DD
   });
   // Copia la carpeta de imágenes al directorio de salida
-  // eleventyConfig.addPassthroughCopy("_includes/assets/images");
-  eleventyConfig.addPassthroughCopy({ "_includes/assets/images": "assets/images" });
+  eleventyConfig.addPassthroughCopy("_includes/assets/images");
 
   return {
     dir: {
