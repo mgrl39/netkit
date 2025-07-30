@@ -109,4 +109,3 @@ In this way, the subnet mask separates the IP address into the network and host 
 
 The "255" address is always assigned to a broadcaast address, and the "0" address is always assigned to a netwrok address. Neither can be assigend to hosts, as they are reserved for these special purposes.
 
-

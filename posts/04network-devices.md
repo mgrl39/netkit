@@ -61,6 +61,22 @@ Router connects multiple networks together. The router has an interface for each
 
 Since the router separates different networks, the range of possible IP addresses on one of its interafaaces must not overlap with the range of its other interfaces. An overlap in the IP adddress range would imply that the interfaces are on the same network.
 
+```
+WHAT IS THE DIFFERENCE BETWEEN A MODEM AND A ROUTER?
+A router forms local networks (LANs) and manages how data flows between devices and between different networks.
+A modem, on the other hand, connects oyur local network to the internet - it translates the signals between your ISP and your devices.
+
+In simpler terms:
+--> A router connects multile devices together, creating a local network.
+--> A modem connects that local network to the internet.
+
+To provide internet access to multiple devices in oyur home or office, you need both:
+--> The modem talks to your internet provider (ISP)
+--> The router takes that connection and shares it with all your devices.
+
+Many modern devices combine both functions into a single box called a modem-router.
+```
+
 ## Routing Table
 Routing tables are the router’s instruction manual for deciding where each packet should go next.
 
