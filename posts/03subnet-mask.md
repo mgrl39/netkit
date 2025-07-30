@@ -34,7 +34,25 @@ Network address | 01101000.11000110.11110001.00000000
 Which translates to a network address of `104.198.241.0`.
 
 ### Finding the range of host addresses
-TODO TODO TODO TODO TODO
+To determine what host addresses we can use on our network, we have to use the bits of our IP address dedicated to the host address. Let's use our previous IP address and mask:
+```
+IP address | 01101000.11000110.11110001.01111101
+Mask       | 11111111.11111111.11111111.10000000
+```
+The possible range of our hostt addresses is expected through the last 7 bits of the mask which are all 0.
+Therefore, the range of host addresses is:
+```
+BINARY  | 00000000 - 11111111
+DECIMAL | 0 - 127
+```
+To get the range of possible IP addresses for our network, we add the range of host addresses to the network address. Our range of possible IP addresses become `104.198.241.0 - 104.198.241.127`.
+
+_HOWEVER_, the extremities of the range are reserved for specific uses and cannot be given to an interface:
+```
+104.198.241.0   | Reserved to represent the network address.
+104.198.241.127 | Reserved as the broadcast address; used to send packets to all hosts of a network.
+```
+Therefore, our real IP range becomes `104.198.241.1 - 104.198.241.126`, which could have been found using an [IP calculator](https://netkit.doncom.me/posts/05calculator/)
 
 ## CIDR Notation (/24)
 The maask can also be represented with the **Classless Inter-Domain Routing** (CIDR).
