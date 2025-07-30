@@ -98,3 +98,15 @@ Therefore, the mask in the example above of `255.255.255.128`, is equivalent to 
 | 192.0.0.0       | /2  | 11000000.00000000.00000000.00000000 | 2  | 30 | 1073741822 |
 | 128.0.0.0       | /1  | 10000000.00000000.00000000.00000000 | 1  | 31 | 2147483646 |
 | 0.0.0.0         | /0  | 00000000.00000000.00000000.00000000 | 0  | 32 | 4294967294 |
+
+
+---
+Did you undestand everything? I will explain again:
+
+A subnet mask is a 32-bit number created by setting host bits to all 0s and setting network bits to all 1s.
+
+In this way, the subnet mask separates the IP address into the network and host address.
+
+The "255" address is always assigned to a broadcaast address, and the "0" address is always assigned to a netwrok address. Neither can be assigend to hosts, as they are reserved for these special purposes.
+
+
