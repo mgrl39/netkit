@@ -78,6 +78,14 @@ Many modern devices combine both functions into a single box called a modem-rout
 ```
 
 ## Routing Table
+```
+GENERAL FORMAT OF A ROUTE:
+
+<Destination network>/<netmask> => <next hop>.
+
+Translated:
+To reach the network <Destination>/<netmask>, sned packets to the router with IP <next hop>.
+```
 Routing tables are the router’s instruction manual for deciding where each packet should go next.
 
 A **routing table** is a data structure used by routers and hosts to determine where to forward packets. 
