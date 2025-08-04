@@ -1,5 +1,9 @@
 # 🌐 NetKit
 
+> [!CAUTION]
+> This project started as a small guide to learn subnetting and basic networking concepts.
+My goal was to create something useful and accessible, but over time I realized that I don’t feel confident enough to explain these topics to others (and that’s something I don’t feel good about). Because of that, I left it quite incomplete, and I don’t recommend using it as a serious resource to learn networking. However, I’m publishing the source code so that anyone can see how the project was built. Apologies to anyone who got interested and expected more.
+
 **NetKit** is a general guide designed to help you discover some networking concepts, especially focused on small-scale network configuration.
 
 ## What is NetKit?
