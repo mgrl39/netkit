@@ -36,7 +36,11 @@ This project is based on and thanks to the following repositories:
 - [caroldaniel/42sp-cursus-netpractice](https://github.com/caroldaniel/42sp-cursus-netpractice)
 - [ricardoreves/42-net-practice](https://github.com/ricardoreves/42-net-practice)
 - [ablaamim/Netpractice](https://github.com/ablaamim/Netpractice)
+- [tblaase/Net_Practice](https://github.com/tblaase/Net_Practice)
 
+- [haglobah](https://haglobah.github.io/Mastering-42/holy_graph/netpractice.html)
+- [Youssef Agnaou](https://medium.com/@imyzf/netpractice-2d2b39b6cf0a)
+- [Toufa7](https://toufa7.medium.com/new-subnetting-34fadfb86c70)
 ## Website
 
 You can read the guide online at:  **[netkit.doncom.me](https://netkit.doncom.me/)**
